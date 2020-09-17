@@ -8,7 +8,7 @@ import {signUp} from 'ducks/auth/reducer'
 import 'styles/components/Home.scss'
 import 'styles/components/Btn.scss'
 import 'styles/components/NavIndicator.scss'
-import 'styles/base/fonts.scss'
+// import 'styles/base/fonts.scss'
 
 import MovieList from 'views/MovieList'
 import Watchlist from 'views/Watchlist'
