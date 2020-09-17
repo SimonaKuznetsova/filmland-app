@@ -1,0 +1,21 @@
+.nav-indicator {
+    height: 2px;
+    border-radius: 3px;
+    background-image: linear-gradient(to left, rgb(101, 115, 255),
+    rgb(111, 114, 247), rgb(120, 114, 239), rgb(130, 113, 231),
+     rgb(139, 112, 223), rgb(149, 111, 215), rgb(158, 111, 208), 
+     rgb(168, 110, 200), rgb(177, 109, 192), rgb(187, 108, 184),
+      rgb(196, 108, 176), rgb(206, 107, 168));
+    position: absolute;
+    left: 0;
+    width: 100%;
+    transition: .5s;
+}
+
+@media (max-width: 576px) {
+  .header {
+    .nav-indicator {
+      display: none;
+    }
+  }
+}
