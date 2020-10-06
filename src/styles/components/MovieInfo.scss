@@ -153,6 +153,10 @@
         align-items: center;
         flex-wrap: nowrap;
 
+        &__btns {
+            justify-content: center;
+        }
+
         &__poster img {
             width: 140px;
             margin: 40px 0;
@@ -162,6 +166,11 @@
             order: 1;
             background-color: white;
             color: black;
+
+            width: 100%;
+            margin-top: 0;
+
+            align-items: center;
         }
 
         &__poster {

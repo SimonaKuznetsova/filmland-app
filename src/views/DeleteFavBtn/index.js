@@ -9,7 +9,7 @@ const DeleteFavBtn = ({id, deleteFromWatchlist}) => {
     }
 
     return (
-        <button className='love' onClick={onDeleteFromWatchlist}>
+        <button className='fav' onClick={onDeleteFromWatchlist}>
             <DeleteFavorites />
         </button>
     )

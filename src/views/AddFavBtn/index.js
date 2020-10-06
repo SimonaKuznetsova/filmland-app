@@ -9,7 +9,7 @@ const AddFavBtn = ({id, addToWatchlist}) => {
     }
 
     return (
-        <button className='fav fav_add' onClick={onAddToWatchlist}>
+        <button className='fav' onClick={onAddToWatchlist}>
             <AddFavorites />
         </button>
     )

@@ -31,11 +31,10 @@ export const Header = () => {
             </div>
 
 
-            <div className='header__inner'>
+            {open && <div className='header__inner'>
                 <Navigation onHandleCloseMenu={onHandleCloseMenu}/>
                 <Tools onHandleCloseMenu={onHandleCloseMenu}/>
-            </div>
-            <DeleteFavorites />
+            </div>}
         </header>
     )
 }
