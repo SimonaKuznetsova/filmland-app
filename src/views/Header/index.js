@@ -5,8 +5,7 @@ import 'styles/components/Header.scss'
 import Logo from 'icons/Logo'
 import Close from 'icons/Close'
 import Open from 'icons/Open'
-import DeleteFavBtn from '../DeleteFavBtn'
-import DeleteFavorites from 'icons/DeleteFavorites'
+import classNames from 'classnames'
 
 export const Header = () => {
     const [open, setOpen] = useState(false)
@@ -30,11 +29,13 @@ export const Header = () => {
                 {open && <Close onHandleCloseMenu={onHandleCloseMenu}/>}
             </div>
 
-
-            {open && <div className='header__inner'>
+            <div className={classNames({
+                'header__inner': true,
+                'header__inner_hidden': !open
+            })}>
                 <Navigation onHandleCloseMenu={onHandleCloseMenu}/>
                 <Tools onHandleCloseMenu={onHandleCloseMenu}/>
-            </div>}
+            </div>
         </header>
     )
 }

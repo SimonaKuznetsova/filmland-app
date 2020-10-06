@@ -173,6 +173,10 @@
             margin: 80px 0;
         }
 
+        &__inner_hidden {
+            display: none;
+        }
+
         &__nav,
         &__inner,
         &__tools {

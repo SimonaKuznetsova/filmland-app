@@ -10,7 +10,6 @@ import { MovieCast } from 'views/MovieCast'
 import { NavIndicator } from 'views/NavIndicator'
 import 'styles/components/MovieInfo.scss'
 
-
 const MoreInfoMovie = (props) => {
 
     useEffect(() => {
