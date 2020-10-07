@@ -1,6 +1,8 @@
 
 import firebase from 'firebase'
-import { SIGN_UP_REQUEST, SIGN_UP_SUCCESS, SIGN_UP_ERROR, SIGN_IN_SUCCESS } from "ducks/auth/const"
+import { SIGN_UP_REQUEST, SIGN_UP_SUCCESS,
+     SIGN_UP_ERROR, SIGN_IN_ERROR, SIGN_IN_SUCCESS, SIGN_IN_REQUEST
+     } from "ducks/auth/const"
 
 const defaultState = {
     user: null,
@@ -17,6 +19,13 @@ export default function reducer(state = defaultState, action) {
         case SIGN_UP_SUCCESS:
             return { ...state, loading: false, user: payload.user, error: null }
         case SIGN_UP_ERROR:
+            return { ...state, loading: false, error }
+
+        case SIGN_IN_REQUEST:
+            return { ...state, loading: true }
+        case SIGN_IN_SUCCESS:
+            return { ...state, loading: false, user: payload.user, error: null }
+        case SIGN_IN_ERROR:
             return { ...state, loading: false, error }
     }
 
@@ -36,6 +45,24 @@ export const signUp = (email, password) => {
             }))
             .catch(error => dispatch({
                 type: SIGN_UP_ERROR,
+                error
+            }))
+    }
+}
+
+export const signIn = (email, password) => {
+    return (dispatch) => {
+        dispatch({
+            type: SIGN_IN_REQUEST
+        })
+
+        firebase.auth().signInWithEmailAndPassword(email, password)
+            .then(user => dispatch({
+                type: SIGN_IN_SUCCESS,
+                payload: { user }
+            }))
+            .catch(error => dispatch({
+                type: SIGN_IN_ERROR,
                 error
             }))
     }

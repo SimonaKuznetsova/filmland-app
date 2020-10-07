@@ -12,7 +12,21 @@
     transition: .5s;
 }
 
-@media (max-width: 576px) {
+.header {
+  .nav-indicator {
+    bottom: -20px;
+  }
+}
+
+@media (max-width: 992px) {
+  .header {
+    .nav-indicator {
+      bottom: -10px;
+    }
+  }
+}
+
+@media (max-width: 767px) {
   .header {
     .nav-indicator {
       display: none;

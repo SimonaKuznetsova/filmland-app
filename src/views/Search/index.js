@@ -3,11 +3,12 @@ import { connect } from 'react-redux'
 import { NavLink } from 'react-router-dom'
 import { changeSearchTitle, getFilms } from 'ducks/movieList/actions'
 import SearchIcon from '../../icons/Search'
+import classNames from 'classnames'
 
 const Search = ({onHandleCloseMenu, getFilms, changeSearchTitle}) => {
 
     const [title, setTitle] = useState('')
-    const [search, setSearch] = useState(true)
+    const [search, setSearch] = useState(false)
 
     const onValueChange = (ev) => {
         setTitle(ev.currentTarget.value)
@@ -17,6 +18,7 @@ const Search = ({onHandleCloseMenu, getFilms, changeSearchTitle}) => {
         getFilms(title)
         changeSearchTitle(title)
         onHandleCloseMenu()
+        setSearch(false)
     }
 
     const onHandleSearch = () => {
@@ -52,7 +54,10 @@ const Search = ({onHandleCloseMenu, getFilms, changeSearchTitle}) => {
                 </NavLink>
             </div> */}
             {!search && <span className='search__span header__nav-link' onClick={onHandleSearch}>Search</span>}
-            {search && <div className='search__inner header__nav-link'>
+            {<div className={classNames({
+                'search__inner header__nav-link': true,
+                'search__inner_hidden': !search
+                })}>
                 <input type='text'
                     placeholder='What do you want to see?'
                     onChange={onValueChange}

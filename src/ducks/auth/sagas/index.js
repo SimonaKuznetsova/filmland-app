@@ -4,7 +4,7 @@ import axios from 'axios'
 
 import {callApi, apiKey} from 'config'
 
-export default function* fetchMovieSaga({
+export function* fetchMovieSaga({
     payload: id
 }) {
     try {
@@ -33,8 +33,8 @@ export default function* fetchMovieSaga({
     }
 }
 
-export default function* signUp({
-    payload: {email, password}
+export function* signUp({
+    payload: {email, password, id}
 }) {
     try {
         const options = {
