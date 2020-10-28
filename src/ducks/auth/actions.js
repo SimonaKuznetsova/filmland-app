@@ -1,26 +1,21 @@
-// import { AUTH_USER_CHANGE, USER_EMAIL_CHANGE, USER_PASSWORD_CHANGE } from "ducks/auth/const";
-
-// export const authUserChange = (user) => {
-//   return {
-//     type: AUTH_USER_CHANGE,
-//     payload: { user }
-//   };
-// };
-
-// export const userEmailChange = (email) => {
-//   return {
-//     type: USER_EMAIL_CHANGE,
-//     payload: { email }
-//   };
-// }; 
-
-// export const userPasswordChange = (password) => {
-//   return {
-//     type: USER_PASSWORD_CHANGE,
-//     payload: { password }
-//   };
-// }; 
+import { SIGN_UP_REQUEST, SIGN_IN_REQUEST, SIGN_OUT_REQUEST } from "./const";
 
 export const signUp = (email, password) => {
-  
+    return {
+        type: SIGN_UP_REQUEST,
+        payload: { email, password }
+      };
+}
+
+export const signIn = (email, password) => {
+    return {
+        type: SIGN_IN_REQUEST,
+        payload: { email, password }
+      };
+}
+
+export const signOut = () => {
+    return {
+        type: SIGN_OUT_REQUEST,
+      };
 }

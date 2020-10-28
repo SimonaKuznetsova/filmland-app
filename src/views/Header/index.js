@@ -1,4 +1,5 @@
 import React, {useState} from 'react'
+import { connect } from 'react-redux'
 import { Navigation } from 'views/Navigation'
 import { Tools } from 'views/Tools'
 import 'styles/components/Header.scss'
@@ -6,14 +7,20 @@ import Logo from 'icons/Logo'
 import Close from 'icons/Close'
 import Open from 'icons/Open'
 import classNames from 'classnames'
+import { signOut } from 'ducks/auth/actions'
 
-export const Header = () => {
+const Header = (props) => {
     const [open, setOpen] = useState(false)
     const onHandleOpenMenu = () => {
         setOpen(true)
-    } 
+    }
     const onHandleCloseMenu = () => {
         setOpen(false)
+    }
+
+    const onHandleSignOut = (e) => {
+        e.preventDefault()
+        props.signOut()
     }
 
     return (
@@ -34,8 +41,18 @@ export const Header = () => {
                 'header__inner_hidden': !open
             })}>
                 <Navigation onHandleCloseMenu={onHandleCloseMenu}/>
-                <Tools onHandleCloseMenu={onHandleCloseMenu}/>
+                <Tools onHandleCloseMenu={onHandleCloseMenu} 
+                       onHandleSignOut={onHandleSignOut}
+                       signedIn={props.signedIn}/>
             </div>
         </header>
     )
 }
+
+const mapStateToProps = (state) => {
+    return {
+        signedIn: state.auth.user
+    }
+}
+
+export default connect(mapStateToProps, { signOut })(Header)

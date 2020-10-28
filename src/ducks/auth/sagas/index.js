@@ -1,63 +1,11 @@
-import {LOAD_MOVIE_SUCCESS, LOAD_MOVIE_FAIL} from "ducks/movie/const"
-import { call, put} from 'redux-saga/effects'
-import axios from 'axios'
+import signUpSaga from 'ducks/auth/sagas/signUpSaga'
+import signInSaga from 'ducks/auth/sagas/signInSaga'
+import signOutSaga from 'ducks/auth/sagas/signOutSaga'
+import {SIGN_UP_REQUEST, SIGN_IN_REQUEST, SIGN_OUT_REQUEST} from 'ducks/auth/const'
+import {takeEvery} from 'redux-saga/effects'
 
-import {callApi, apiKey} from 'config'
-
-export function* fetchMovieSaga({
-    payload: id
-}) {
-    try {
-        const options = {
-            method: "get",
-            url: callApi,
-            params: {
-                apiKey,
-                i: id,
-            }
-        }
-        
-        const res = yield call(axios, options)
-
-        if (res && res.data) {
-        yield put({
-            type: LOAD_MOVIE_SUCCESS,
-            payload: res.data
-          })
-        } 
-    } catch (err) {
-        yield put({
-            type: LOAD_MOVIE_FAIL,
-            payload: {err}
-        })
-    }
-}
-
-export function* signUp({
-    payload: {email, password, id}
-}) {
-    try {
-        const options = {
-            method: "get",
-            url: callApi,
-            params: {
-                apiKey,
-                i: id,
-            }
-        }
-        
-        const res = yield call(axios, options)
-
-        if (res && res.data) {
-        yield put({
-            type: LOAD_MOVIE_SUCCESS,
-            payload: res.data
-          })
-        } 
-    } catch (err) {
-        yield put({
-            type: LOAD_MOVIE_FAIL,
-            payload: {err}
-        })
-    }
+export default function* saga() {
+    yield takeEvery(SIGN_UP_REQUEST, signUpSaga)
+    yield takeEvery(SIGN_IN_REQUEST, signInSaga)
+    yield takeEvery(SIGN_OUT_REQUEST, signOutSaga)
 }
