@@ -43,6 +43,7 @@ export default function* onAuthStateChangedSaga() {
           payload: { user },
         });
         yield put(push("/watchlist"));
+        console.log('i`m authorized!')
       } else {
         yield put({
           type: SIGN_IN_ERROR,

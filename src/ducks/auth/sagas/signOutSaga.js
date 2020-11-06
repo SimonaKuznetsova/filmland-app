@@ -9,6 +9,7 @@ export default function* signOutSaga() {
         yield put({
             type: SIGN_OUT_SUCCESS
         })
+        console.log('I`m unauthorized!!!')
     } catch (error) {
         console.log(error)
     }

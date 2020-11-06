@@ -12,5 +12,6 @@ export default function* signInSaga({ payload: { email, password } }) {
       type: SIGN_IN_ERROR,
       error,
     });
+    console.log('Login or password is wrong!')
   }
 }

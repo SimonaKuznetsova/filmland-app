@@ -1,7 +1,7 @@
 .header {
     display: flex;
     padding: 20px 100px;
-    background-color: #131C25;
+    // background-color: #131C25;
 
     &__inner {
         display: flex;
@@ -83,7 +83,8 @@
     }
 
     &__input {
-        background-color: #263A4F;
+        // background-color: #263A4F;
+        background-color: rgba(38,58,79,49%);
         width: 280px;
 
         padding: 8px 10px;
