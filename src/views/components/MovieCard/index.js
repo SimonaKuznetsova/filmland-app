@@ -4,8 +4,8 @@ import 'styles/components/FavBtn.scss'
 import { NavLink } from 'react-router-dom'
 import { connect } from 'react-redux'
 import Poster from 'icons/Poster'
-import AddFavBtn from 'views/AddFavBtn'
-import DeleteFavBtn from 'views/DeleteFavBtn'
+import AddFavBtn from 'views/base/AddFavBtn'
+import DeleteFavBtn from 'views/base/DeleteFavBtn'
 
 const MovieCard = (props) => {
 

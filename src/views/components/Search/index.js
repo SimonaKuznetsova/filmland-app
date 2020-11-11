@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import { connect } from 'react-redux'
 import { NavLink } from 'react-router-dom'
 import { changeSearchTitle, getFilms } from 'ducks/movieList/actions'
-import SearchIcon from '../../icons/Search'
+import SearchIcon from '../../../icons/Search'
 import classNames from 'classnames'
 
 const Search = ({onHandleCloseMenu, getFilms, changeSearchTitle}) => {
@@ -17,7 +17,7 @@ const Search = ({onHandleCloseMenu, getFilms, changeSearchTitle}) => {
     const onSearchFilmsClick = () => {
         getFilms(title)
         changeSearchTitle(title)
-        onHandleCloseMenu()
+        // onHandleCloseMenu()
         setSearch(false)
     }
 
@@ -63,7 +63,7 @@ const Search = ({onHandleCloseMenu, getFilms, changeSearchTitle}) => {
                     onChange={onValueChange}
                     className='search__input' />
 
-                <NavLink to='/'
+                <NavLink to='/movies'
                     className='search__btn'
                     onClick={onSearchFilmsClick}>
                     <SearchIcon />

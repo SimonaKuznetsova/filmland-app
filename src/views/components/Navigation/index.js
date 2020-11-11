@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import {NavLink} from 'react-router-dom'
-import { NavIndicator } from 'views/NavIndicator'
+import { NavIndicator } from 'views/base/NavIndicator'
 
 export const Navigation = ({onHandleCloseMenu}) => {
 

@@ -1,6 +1,6 @@
 import React from 'react'
 import { connect } from 'react-redux'
-import MovieCard from 'views/MovieCard'
+import MovieCard from 'views/components/MovieCard'
 import 'styles/components/MovieList.scss'
 import {Preloader} from 'icons/Preloader'
 import { changeLoadMoreCount, loadMoreMovies } from 'ducks/movieList/actions'

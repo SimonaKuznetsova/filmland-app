@@ -3,7 +3,7 @@ import {reduxForm, Field} from 'redux-form'
 import {Link} from 'react-router-dom'
 import 'styles/components/Sign.scss'
 import emailValidator from 'email-validator'
-import {ErrorField} from 'views/ErrorField'
+import {ErrorField} from 'views/base/ErrorField'
 
 const SignUpForm = ({handleSubmit}) => {
     return (

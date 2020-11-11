@@ -1,7 +1,8 @@
 import React, {useState} from 'react'
 import { connect } from 'react-redux'
-import { Navigation } from 'views/Navigation'
-import { Tools } from 'views/Tools'
+import {NavLink} from 'react-router-dom'
+import { Navigation } from 'views/components/Navigation'
+import { Tools } from 'views/components/Tools'
 import 'styles/components/Header.scss'
 import Logo from 'icons/Logo'
 import Close from 'icons/Close'
@@ -26,12 +27,12 @@ const Header = (props) => {
     return (
         <header className='header'>
             <div className='header__top'>
-                <div className='logo'>
+                <NavLink to='/' className='logo'>
                     <span className='logo__text logo__text_first'>filmla</span>
                     <span className='logo__text logo__text_middle'>n</span>
                     <Logo />
                     <span className='logo__text logo__text_last'>d</span>
-                </div>
+                </NavLink>
                 {!open && <Open onHandleOpenMenu={onHandleOpenMenu}/>}
                 {open && <Close onHandleCloseMenu={onHandleCloseMenu}/>}
             </div>
@@ -41,8 +42,7 @@ const Header = (props) => {
                 'header__inner_hidden': !open
             })}>
                 <Navigation onHandleCloseMenu={onHandleCloseMenu}/>
-                <Tools onHandleCloseMenu={onHandleCloseMenu} 
-                       onHandleSignOut={onHandleSignOut}
+                <Tools onHandleSignOut={onHandleSignOut}
                        signedIn={props.signedIn}/>
             </div>
         </header>
